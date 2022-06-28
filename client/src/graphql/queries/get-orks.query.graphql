@@ -1,0 +1,6 @@
+query GetOkrs {
+  okrs {
+    id
+    title
+  }
+}
