@@ -1,12 +1,11 @@
-import {gql} from 'apollo-server';
+import { CreateUserResolver, resolvers, User } from '../prisma/generated/type-graphql'
+import { buildSchema } from "type-graphql"
 
-export const typeDefs = gql`
-  type Okr {
-    id: String
-    title: String
-  }
+export const schema = buildSchema({
+  resolvers: [
+    CreateUserResolver,
+    User,
+  ],
 
-  type Query {
-    okrs: [Okr!]!
-  }
-`;
+  emitSchemaFile: true,
+})
